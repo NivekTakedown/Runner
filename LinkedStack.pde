@@ -1,6 +1,6 @@
 public class LinkedStack<T>{
-  
-  Nodo top;
+  int size;
+  private Nodo top;
   public LinkedStack(Nodo top){
     this.top= top;
   }
@@ -22,6 +22,8 @@ public class LinkedStack<T>{
       top=top.getNext();
     }
   }
-  
+  Nodo getTop(){
+    return this.top;
+  } 
   
 }

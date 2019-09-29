@@ -1,498 +1,148 @@
 {"problem": [
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
-  },
-  {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 280,
+    "y": 56,
+    "ID": "Spike_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 224,
+    "y": 56,
+    "ID": "Spike_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 168,
+    "y": 56,
+    "ID": "Spike_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 112,
+    "y": 112,
+    "ID": "Spike_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 56,
+    "y": 168,
+    "ID": "Spike_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 168,
+    "y": 448,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 224,
+    "y": 448,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 224,
+    "y": 392,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 168,
+    "y": 280,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 168,
+    "y": 168,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 224,
+    "y": 112,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 280,
+    "y": 112,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 336,
+    "y": 168,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
-    "ID": "Floor_Runner.png"
+    "x": 448,
+    "y": 224,
+    "ID": "Ground_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 616,
+    "y": 280,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 672,
+    "y": 224,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 616,
+    "y": 168,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 560,
+    "y": 112,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 504,
+    "y": 112,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 392,
+    "y": 112,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 560,
+    "y": 168,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 560,
+    "y": 280,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 504,
+    "y": 336,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 448,
+    "y": 392,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 336,
+    "y": 392,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 280,
+    "y": 336,
     "ID": "Floor_Runner.png"
   },
   {
-    "x": -56,
-    "y": 0,
+    "x": 224,
+    "y": 224,
     "ID": "Floor_Runner.png"
   },
   {
     "x": -56,
     "y": 0,
-    "ID": "Floor_Runner.png"
+    "ID": "Ground_Runner.png"
   },
   {
     "x": -56,
     "y": 0,
-    "ID": "Floor_Runner.png"
+    "ID": "Spike_Runner.png"
   },
   {
     "x": -56,
