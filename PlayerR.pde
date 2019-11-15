@@ -10,7 +10,7 @@ class PlayerR extends Player {
   }
   void move() {
   }
-  void fall(Object[] ob) {
+  void fall(LinkedStack<SimpleObject> ob) {
     groundCollision(ob);
     if (floor==false)
       y++;
@@ -22,16 +22,16 @@ class PlayerR extends Player {
     image(sprite, 0, 0);
     pop();
   }
-  void groundCollision(Object[] ob) {
-    int i=0;
-    for (Object p : ob) {
-      if (p.getx()==(int(this.x/56)*56)&&p.gety()==(int(this.y/56)*56)+56) {
-        i++;
-      }
-    }
-    if (i>=1)
-      floor= true;
-    else
-      floor= false;
+  void groundCollision(LinkedStack<SimpleObject> ob) {
+    //int i=0;
+    //for (Object p : ob) {
+    //  if (p.getx()==(int(this.x/56)*56)&&p.gety()==(int(this.y/56)*56)+56) {
+    //    i++;
+    //  } 
+    //}
+    //if (i>=1)
+    //  floor= true;
+    //else
+      //floor= false;
   }
 }

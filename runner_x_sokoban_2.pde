@@ -1,18 +1,12 @@
 char opc;
 char j;
-int grassObjectID;
-int spikeObjectID;
-int groundObjectID;
 int translation;
-SimpleObject[] grass;
-SimpleObject[] spike;
-SimpleObject[] ground; 
-SimpleObject[] grassProblem;
-SimpleObject[] spikeProblem;
-SimpleObject[] groundProblem;
+LinkedList<SimpleObject> list=new LinkedList<SimpleObject>();
+LinkedStack<SimpleObject> ctrlz=new LinkedStack<SimpleObject>();
+LinkedStack<String> ctrlzCase=new LinkedStack<String>();
+LinkedStack<SimpleObject> ctrlY=new LinkedStack<SimpleObject>();
 Button[] mainButtons=new Button[3];
 Button[] runnerButtonsC=new Button[3];
-Button[] runnerButtonsSC=new Button[4];
 Object sky;
 PlayerR player;
 void setup() {
@@ -25,42 +19,39 @@ void setup() {
   runnerButtonsC[1]=new Button(112+224+56, 0, loadImage("BUTTON_2.png"), "BUTTON_2.png");
   mainButtons[0] = new Button(300, 350, 200, 50, "Runner", "BUTTON_4.png");
   mainButtons[2] =  new Button(210, 200, 400, 80, "PROYECT", "BUTTON_6.png");
-
-  grass=new SimpleObject[100];
-  spike=new SimpleObject[100];
-  ground=new SimpleObject[100];
-  for (int i=0; i<grass.length; i++)
-    grass[i]=new SimpleObject(-56, 0, translation, loadImage("Floor_Runner.png"), "Floor_Runner.png");
-  for (int i=0; i<spike.length; i++)
-    spike[i]=new SimpleObject(-56, 0, translation, loadImage("Spike_Runner.png"), "Spike_Runner.png");
-  for (int i=0; i<ground.length; i++)
-    ground[i]=new SimpleObject(-56, 0, translation, loadImage("Ground_Runner.png"), "Ground_Runner.png");
-  grassObjectID=0;
-  spikeObjectID=0;
-  groundObjectID=0;
   sky=new SimpleObject(-25, -25, translation, loadImage("Sky.png"), "sky");
   player=new PlayerR(0, 0, loadImage("PROYECT_YUI.png"));
-
-
   size(800, 600);
 }
-boolean verificationArray(SimpleObject[] ob) {
-  if (verification(int((translation+mouseX)/56)*56, int(mouseY/56)*56, ob)!=false) 
-    return true;
-  else
-    return false;
-}
-boolean verification(int x, int y, Object[] ob) {
-  for (Object p : ob) {
-    if (p.getx()==x&&(p.gety()==y)) {
-      return false;
-    }
+
+void DrawObjects(LinkedList<SimpleObject> list) {
+  Nodo<SimpleObject> nodo=list.getHead();
+  while (nodo!=null) {
+    nodo.getDate().drawPNG();
+    nodo=nodo.getNext();
   }
-  return true;
 }
-void verificationObject(SimpleObject[] ob, SimpleObject[] ob2, SimpleObject[] ob3, int code, int startx, int starty) {
-  if (verificationArray (ob)&&verificationArray (ob2)&&verificationArray (ob3) ) {
-    ob[code]=resetxy(ob[code], startx, starty, translation);
+void DrawObjects(LinkedStack<SimpleObject> list) {
+  Nodo<SimpleObject> nodo=list.getTop();
+  while (nodo!=null) {
+    nodo.getDate().drawPNG();
+    nodo=nodo.getNext();
+  }
+}
+void DrawObjectsLinkedTree(TreeNode<SimpleObject> nodo) {
+  if(nodo!=null){
+    DrawObjectsLinkedTree(nodo.getleft()) ;
+    nodo.getDate().drawPNG();
+    DrawObjectsLinkedTree(nodo.getright()) ;
+  }
+}
+void ShowList(LinkedList<SimpleObject> list){
+  Nodo<SimpleObject> nodo=list.getHead();
+  int i=0;
+  while (nodo!=null) {
+        
+        i++;
+    nodo=nodo.getNext();
   }
 }
 void draw() { 
@@ -78,18 +69,19 @@ void draw() {
       opc=key;
     sky.drawPNG();
     mapCreator(opc);
-    textSize(40);
-    for (int i=0; i<grass.length; i++) 
-      grass[i].drawPNG();
-    for (int i=0; i<spike.length; i++) 
-      spike[i].drawPNG();
-    for (int i=0; i<ground.length; i++) 
-      ground[i].drawPNG();
+    textSize(20);
+    ShowList(list);
     opc=creationMenu(runnerButtonsC, opc, 6);
-    player.fall(grass);
+    //player.fall(grass);
     player.drawPNG();
-    saveProblem(grass);
-    moveMap(grass, ground, spike);
+    //saveProblem(grass);
+    //moveMap(grass, ground, spike);
+    DrawObjects(list);
+    //if(key=='s'||key=='S')
+      //saveProblem(list);
+    //if(key=='l'||key=='L')
+    //  list=LoadArray("problem","problem");
+      
   }
 }
 char creationMenu(Button[] buttons, char opc_, int j) {
@@ -106,119 +98,145 @@ char creationMenu(Button[] buttons, char opc_, int j) {
   }
   return opc_;
 }
+boolean verificationList(LinkedList<SimpleObject> list) {
+    if (SearchNodo(list)!=null) {
+      return true;
+    }
+  return false;
+}
+Nodo SearchNodo(LinkedList<SimpleObject> list) {
+  int x=int(mouseX/56)*56;
+  int y=int(mouseY/56)*56;
+  Nodo<SimpleObject> nodo=list.getHead();
+  while (nodo!=null) {
+    if (nodo.getDate().getx()==x&&nodo.getDate().gety()==y) {
+      return nodo;
+    }
+    nodo=nodo.getNext();
+  }
+  return null;
+}
+Nodo SearchNodo(Nodo<SimpleObject> nodo, Nodo<SimpleObject> Head) {
+  if(nodo==null)
+    return null;
+  while (Head!=null) {
+    if (Head.getDate().getx()==nodo.getDate().getx()&&Head.getDate().gety()==nodo.getDate().gety()) {
+      return Head;
+    }
+    Head=Head.getNext();
+  }
+  return null;
+}
+//boolean verificationTree(LinkedTree<SimpleObject> tree) {
+//  int x=int(mouseX/56)*56;
+//  int y=int(mouseY/56)*56;
+//  //Nodo<SimpleObject> nodo=list.getTop();
+//  while (nodo.getNext()!=null) {
+//    if (nodo.getDate().getx()==x&&nodo.getDate().gety()==y) {
+//      return true;
+//    }
+//    nodo=nodo.getNext();
+//  }
+//  return false;
+//}
 void mapCreator(int opc) {
   if (j =='r' ) {
     switch(opc) {
     case '1':
       {
-        verificationObject(grass, ground, spike, grassObjectID, -56, 0);
-        grassObjectID=changeObject(grassObjectID, 100);
+        if (mousePressed&&mouseButton==LEFT) {
+          if(verificationList(list)==false){
+            Nodo nodo= new Nodo(new SimpleObject(int(mouseX/56)*56, int(mouseY/56)*56, translation, loadImage("Floor_Runner.png"), "Floor_Runner.png"));
+            list.Insert(nodo);
+            nodo= new Nodo(nodo.date);
+            ctrlz.push(nodo);
+            nodo= new Nodo("INSERT");
+            ctrlzCase.push(nodo);
+          }
+        }
+        delay(120);
         break;
       }
     case '2':
       {
-        verificationObject(spike, grass, ground, spikeObjectID, - 56, 0);
-        spikeObjectID=changeObject(spikeObjectID, 99);
+        if (mousePressed&&mouseButton==LEFT) {
+          if(verificationList(list)==false){
+            Nodo nodo= new Nodo(new SimpleObject(int(mouseX/56)*56, int(mouseY/56)*56, translation, loadImage("Spike_Runner.png"), "Spike_Runner.png"));
+            list.Insert(nodo);
+            nodo= new Nodo(nodo.date);
+            ctrlz.push(nodo);
+            nodo= new Nodo("INSERT");
+            ctrlzCase.push(nodo);
+          }
+        }
+        delay(120);
         break;
       }
     case '3':
       {
-        verificationObject( ground, spike, grass, groundObjectID, -112, 0);
-        groundObjectID=changeObject(groundObjectID, 99);
-        break;
-      }
-    }
-  }
-  }
-SimpleObject resetxy(SimpleObject object, int startx, int starty, int xTranslation) {
-  if (mousePressed&&mouseButton==LEFT) {
-    delay(60);
-    object.setY(int(mouseY/56)*56);
-    object.setx((int(mouseX/56)*56)+xTranslation);
-  }
-  if (mousePressed&&mouseButton==RIGHT) {
-    if (grassObjectID>0) {
-      delay(60);
-      object.setxTranslate(0);
-      object.setx(startx);
-      object.setY(starty);
-    }
-  }
-
-  return object;
-}
-int changeObject(int object, int final_) {
-  if (mousePressed&&mouseButton==LEFT) {
-
-    if (object<=final_) {
-      object++;
-      if (object>final_)
-        object=final_;
-    }
-  }
-  if (mousePressed&&mouseButton==RIGHT) {
-
-    if (object>=1)
-      object--;
-    else 
-    object=0;
-  }
-  delay(60);
-  return object;
-}
-
-void moveMap(SimpleObject[] ob, SimpleObject[] ob1, SimpleObject[] ob2) {
-  if (keyPressed) {
-    delay(60);
-    switch(keyCode) {
-    case LEFT:
-      {
-        for (int i=0; i<ob.length; i++) {
-          ob[i].xPlusTranslation();
-          ob1[i].xPlusTranslation();
-          ob2[i].xPlusTranslation();
-        }
-        translation+=56;
-        break;
-      }
-    case RIGHT:
-      {
-        if (translation>0)
-        {
-          for (int i=0; i<ob.length; i++) {
-
-            ob[i].xLessTranslation();
-            ob1[i].xLessTranslation();
-            ob2[i].xLessTranslation();
+        if (mousePressed&&mouseButton==LEFT) {
+          if(verificationList(list)==false){
+            Nodo nodo= new Nodo(new SimpleObject(int(mouseX/56)*56, int(mouseY/56)*56,translation, loadImage("Ground_Runner.png"), "Ground_Runner.png"));
+            list.Insert(nodo);
+            nodo= new Nodo(nodo.date);
+            ctrlz.push(nodo);
+            nodo= new Nodo("INSERT");
+            ctrlzCase.push(nodo);
           }
-          translation-=56;
-          ;
-        } else {
-          translation=0;
         }
-
+        delay(120);
         break;
       }
+
     }
+      if (mousePressed&&mouseButton==RIGHT) {
+        Nodo nodo=list.Delete(SearchNodo(list));
+            ctrlz.push(nodo);
+            if(nodo!=null){
+              nodo= new Nodo("DELETE");
+              ctrlzCase.push(nodo);
+            }
+           delay(120);
+      }
+      if(key=='s'){
+          DrawObjects(ctrlz);
+      }
+      
+      ctrlz();
   }
 }
-void saveProblem(Object[] ob) {
+void ctrlz(){
+  if(ctrlz.getTop()==null)
+    return;
+  if(key=='z'&&keyPressed){
+    textSize(500);
+        if(ctrlzCase.getTop().getDate().equals("DELETE")){
+            text("INSERT", 300, 200);
+            list.Insert(ctrlz.pop());
+            ctrlzCase.pop();
+            delay(120);
+            return;
+        }
+        if(ctrlzCase.getTop().getDate().equals("INSERT")){
+            text("DELETE", 300, 200);
+            list.Delete(SearchNodo(ctrlz.pop(),list.getHead()));
+            text("Borrado", 500, 200);
+            ctrlzCase.pop();
+            delay(120);
+            return;
+        }
+  }
+}
+void saveProblem(LinkedStack<SimpleObject> ob) {
+  Nodo<SimpleObject> nodo=ob.getTop();
   JSONObject problem=new JSONObject();
   JSONArray objects=new JSONArray();
   problem.setJSONArray("problem", objects);
-  for (int i=0; i<ob.length; i++)
-    objects.setJSONObject(i, ob[i].saveJSONobject());
+  int i=0;
+  while(nodo!=null){
+    objects.setJSONObject(i, nodo.getDate().saveJSONobject());
+    nodo=nodo.getNext();
+    i++;
+  }
   saveJSONObject(problem, "data/problem");
-}
-SimpleObject[] loadArray(String problemID, String array, int tam) {
-  JSONObject problem=loadJSONObject(problemID);
-  JSONArray objects=problem.getJSONArray(array);
-  SimpleObject[] ob=new SimpleObject[tam];
-  for (int i=0; i<tam; i++)
-    ob[i]=loadObject(i, objects );
-  return ob;
-}
-SimpleObject loadObject(int i, JSONArray objects ) {
-  SimpleObject ob=new SimpleObject(objects.getJSONObject(i).getInt("x"), objects.getJSONObject(i).getInt("y"), 0, loadImage(objects.getJSONObject(i).getString("ID")), objects.getJSONObject(i).getString("ID"));
-  return ob;
 }

@@ -6,6 +6,11 @@ class SimpleObject extends Object {
     this.texture=i;
     this.xTranslate= xTranslate;
   }
+  SimpleObject(SimpleObject original) {
+    super(original.x,original.y, original.ID);
+    this.texture=original.texture;
+    this.xTranslate= original.xTranslate;
+  }
   void drawPNG() {
     push();
     translate(x-xTranslate, y);

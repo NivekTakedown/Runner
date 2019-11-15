@@ -1,6 +1,6 @@
 public class LinkedStack<T>{
-  
-  Nodo top;
+  int size;
+  private Nodo top;
   public LinkedStack(Nodo top){
     this.top= top;
   }
@@ -8,20 +8,26 @@ public class LinkedStack<T>{
     this.top=null;
   }
   public void push(Nodo nodo){
+    if(nodo!=null){
+      if(top!=null){
+        nodo.setNext(top);
+        top=nodo;
+      }
+      else{
+        top=nodo;
+        top.setNext(null);
+      }
+    }
+  }
+  public Nodo pop(){
+    Nodo n=top;
     if(top!=null){
-      nodo.setNext(top);
-      top=nodo;
-    }
-    else{
-      top=nodo;
-      top.setNext(null);
-    }
-  }
-  public void pop(){
-    if(top.getNext()!=null){
       top=top.getNext();
+      n.setNext(null);
     }
+    return n;
   }
-  
-  
+  Nodo getTop(){
+    return this.top;
+  } 
 }
