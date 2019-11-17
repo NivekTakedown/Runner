@@ -30,4 +30,7 @@ public class LinkedStack<T>{
   Nodo getTop(){
     return this.top;
   } 
+  void makeEmpty(){
+    this.top=null;
+  }
 }

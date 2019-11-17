@@ -4,11 +4,11 @@ int translation;
 LinkedList<SimpleObject> list=new LinkedList<SimpleObject>();
 LinkedStack<SimpleObject> ctrlz=new LinkedStack<SimpleObject>();
 LinkedStack<String> ctrlzCase=new LinkedStack<String>();
+LinkedStack<String> ctrlYCase=new LinkedStack<String>();
 LinkedStack<SimpleObject> ctrlY=new LinkedStack<SimpleObject>();
 Button[] mainButtons=new Button[3];
 Button[] runnerButtonsC=new Button[3];
 Object sky;
-PlayerR player;
 void setup() {
   j= 'm';
   opc='0';
@@ -20,7 +20,6 @@ void setup() {
   mainButtons[0] = new Button(300, 350, 200, 50, "Runner", "BUTTON_4.png");
   mainButtons[2] =  new Button(210, 200, 400, 80, "PROYECT", "BUTTON_6.png");
   sky=new SimpleObject(-25, -25, translation, loadImage("Sky.png"), "sky");
-  player=new PlayerR(0, 0, loadImage("PROYECT_YUI.png"));
   size(800, 600);
 }
 
@@ -45,15 +44,6 @@ void DrawObjectsLinkedTree(TreeNode<SimpleObject> nodo) {
     DrawObjectsLinkedTree(nodo.getright()) ;
   }
 }
-void ShowList(LinkedList<SimpleObject> list){
-  Nodo<SimpleObject> nodo=list.getHead();
-  int i=0;
-  while (nodo!=null) {
-        
-        i++;
-    nodo=nodo.getNext();
-  }
-}
 void draw() { 
   background(0);
   if (j=='m' ) {
@@ -70,17 +60,13 @@ void draw() {
     sky.drawPNG();
     mapCreator(opc);
     textSize(20);
-    ShowList(list);
     opc=creationMenu(runnerButtonsC, opc, 6);
-    //player.fall(grass);
-    player.drawPNG();
-    //saveProblem(grass);
     //moveMap(grass, ground, spike);
     DrawObjects(list);
-    //if(key=='s'||key=='S')
-      //saveProblem(list);
-    //if(key=='l'||key=='L')
-    //  list=LoadArray("problem","problem");
+    if(key=='s'||key=='S')
+      saveProblem(list);
+    if(key=='l'||key=='L')
+      list=LoadProblem("data/problem","problem");
       
   }
 }
@@ -127,18 +113,6 @@ Nodo SearchNodo(Nodo<SimpleObject> nodo, Nodo<SimpleObject> Head) {
   }
   return null;
 }
-//boolean verificationTree(LinkedTree<SimpleObject> tree) {
-//  int x=int(mouseX/56)*56;
-//  int y=int(mouseY/56)*56;
-//  //Nodo<SimpleObject> nodo=list.getTop();
-//  while (nodo.getNext()!=null) {
-//    if (nodo.getDate().getx()==x&&nodo.getDate().gety()==y) {
-//      return true;
-//    }
-//    nodo=nodo.getNext();
-//  }
-//  return false;
-//}
 void mapCreator(int opc) {
   if (j =='r' ) {
     switch(opc) {
@@ -152,6 +126,7 @@ void mapCreator(int opc) {
             ctrlz.push(nodo);
             nodo= new Nodo("INSERT");
             ctrlzCase.push(nodo);
+            ctrlY.makeEmpty();
           }
         }
         delay(120);
@@ -167,6 +142,7 @@ void mapCreator(int opc) {
             ctrlz.push(nodo);
             nodo= new Nodo("INSERT");
             ctrlzCase.push(nodo);
+            ctrlY.makeEmpty();
           }
         }
         delay(120);
@@ -182,6 +158,7 @@ void mapCreator(int opc) {
             ctrlz.push(nodo);
             nodo= new Nodo("INSERT");
             ctrlzCase.push(nodo);
+            ctrlY.makeEmpty();
           }
         }
         delay(120);
@@ -191,44 +168,78 @@ void mapCreator(int opc) {
     }
       if (mousePressed&&mouseButton==RIGHT) {
         Nodo nodo=list.Delete(SearchNodo(list));
-            ctrlz.push(nodo);
+           
             if(nodo!=null){
-              nodo= new Nodo("DELETE");
-              ctrlzCase.push(nodo);
+              ctrlzCase.push(new Nodo("DELETE"));
+              ctrlz.push(nodo);
             }
            delay(120);
       }
-      if(key=='s'){
+      if(key=='v'){
           DrawObjects(ctrlz);
-      }
-      
+      }  
       ctrlz();
+      ctrlY();
   }
 }
 void ctrlz(){
   if(ctrlz.getTop()==null)
     return;
   if(key=='z'&&keyPressed){
-    textSize(500);
         if(ctrlzCase.getTop().getDate().equals("DELETE")){
-            text("INSERT", 300, 200);
-            list.Insert(ctrlz.pop());
-            ctrlzCase.pop();
-            delay(120);
-            return;
+          Nodo n=ctrlz.pop();
+          ctrlzCase.pop();
+          if(n!=null){
+            list.Insert(n);
+            ctrlY.push(new Nodo(n.date));
+            ctrlYCase.push(new Nodo("INSERT"));
+            delay(240);
+          }
+          return;
         }
         if(ctrlzCase.getTop().getDate().equals("INSERT")){
-            text("DELETE", 300, 200);
-            list.Delete(SearchNodo(ctrlz.pop(),list.getHead()));
-            text("Borrado", 500, 200);
-            ctrlzCase.pop();
-            delay(120);
-            return;
+          Nodo n=ctrlz.pop();
+          ctrlzCase.pop();
+          if(n!=null){
+            list.Delete(SearchNodo(n,list.getHead()));
+            ctrlY.push(n);
+            ctrlYCase.push(new Nodo("DELETE"));
+            delay(240);
+          }
+          return;
         }
   }
 }
-void saveProblem(LinkedStack<SimpleObject> ob) {
-  Nodo<SimpleObject> nodo=ob.getTop();
+void ctrlY(){
+  if(ctrlY.getTop()==null)
+    return;
+  if(key=='y'&&keyPressed){
+        if(ctrlYCase.getTop().getDate().equals("DELETE")){
+          Nodo n=ctrlY.pop();
+          ctrlYCase.pop();
+          if(n!=null){
+            list.Insert(n);
+            ctrlz.push(new Nodo(n.date));
+            ctrlzCase.push(new Nodo("INSERT"));
+          }
+          delay(240);
+          return;
+        }
+        if(ctrlYCase.getTop().getDate().equals("INSERT")){
+          Nodo n=ctrlY.pop();
+          ctrlYCase.pop();
+          if(n!=null){
+            list.Delete(SearchNodo(n,list.getHead()));
+            ctrlz.push(n);
+            ctrlzCase.push(new Nodo("DELETE"));
+          }
+          delay(240);
+          return;
+        }
+  }
+}
+void saveProblem(LinkedList<SimpleObject> ob) {
+  Nodo<SimpleObject> nodo=ob.getHead();
   JSONObject problem=new JSONObject();
   JSONArray objects=new JSONArray();
   problem.setJSONArray("problem", objects);
@@ -239,4 +250,17 @@ void saveProblem(LinkedStack<SimpleObject> ob) {
     i++;
   }
   saveJSONObject(problem, "data/problem");
+}
+LinkedList<SimpleObject> LoadProblem(String problemID,String array) {
+  JSONObject problem=loadJSONObject(problemID);
+  JSONArray objects=problem.getJSONArray(array);
+  LinkedList<SimpleObject> ob=new LinkedList<SimpleObject>();
+        System.out.println(array+ objects.size());
+        for (int i=0; i<objects.size(); i++)
+          ob.Insert(new Nodo(loadObject(i, objects )));
+  return ob;    
+}
+SimpleObject loadObject(int i, JSONArray objects ) {
+  SimpleObject ob=new SimpleObject(objects.getJSONObject(i).getInt("x"), objects.getJSONObject(i).getInt("y"), 0, loadImage(objects.getJSONObject(i).getString("ID")), objects.getJSONObject(i).getString("ID"));
+  return ob;
 }
