@@ -167,9 +167,9 @@ void mapCreator(int opc) {
 
     }
       if (mousePressed&&mouseButton==RIGHT) {
-        Nodo nodo=list.Delete(SearchNodo(list));
-           
+        Nodo nodo=list.Delete(SearchNodo(list));          
             if(nodo!=null){
+              ctrlY.makeEmpty();
               ctrlzCase.push(new Nodo("DELETE"));
               ctrlz.push(nodo);
             }
