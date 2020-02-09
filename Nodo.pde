@@ -1,4 +1,4 @@
-public class Nodo<T> {
+public static class Nodo<T> {
   private T date;
   private Nodo next;
   public Nodo(T date,Nodo next){
